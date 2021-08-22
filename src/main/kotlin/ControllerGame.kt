@@ -48,7 +48,7 @@ class ControllerGame : ControllerGameContract {
             }
             StatusJanken.SCISSORS.status -> {
                 when (input2) {
-                    StatusJanken.SCISSORS.status -> {
+                    StatusJanken.PAPER.status -> {
                         Utils.messageResult(Constant.MSG_PLAYER_ONE_WIN)
                     }
                     StatusJanken.ROCK.status -> {
