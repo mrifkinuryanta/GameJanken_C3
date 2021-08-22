@@ -5,9 +5,9 @@ object Utils {
         var state = false
         if (value == Constant.CHAR_Y) {
             state = true
-            println(Constant.playGame)
+            println(Constant.MSG_PLAY_GAME)
         } else {
-            println(Constant.exitGame)
+            println(Constant.MSG_EXIT_GAME)
         }
         return state
     }

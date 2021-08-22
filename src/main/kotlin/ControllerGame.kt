@@ -9,14 +9,14 @@ class ControllerGame : ControllerGameContract {
         print(Constant.INTRO)
         print(Constant.MENU)
         do {
-            print(Constant.msgInputMenu)
+            print(Constant.MSG_INPUT_MENU)
             inputMenu = readLine() ?: Constant.EMPTY_VALUE
         } while (Utils.isWrongMenuNumber(inputMenu))
 
         when (inputMenu.toInt()) {
-            1 -> println(Constant.playGame)
+            1 -> println(Constant.MSG_PLAY_GAME)
             2 -> {
-                println(Constant.exitGame)
+                println(Constant.MSG_EXIT_GAME)
                 exitProcess(0)
             }
         }
