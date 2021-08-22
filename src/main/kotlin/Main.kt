@@ -1,6 +1,8 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+class Main {
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
 
-    // Try adding program arguments at Run/Debug configuration
-    println("Program arguments: ${args.joinToString()}")
+        }
+    }
 }
