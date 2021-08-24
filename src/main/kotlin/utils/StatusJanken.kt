@@ -1,7 +1,7 @@
 package utils
 
-enum class StatusJanken(val status: String) {
-    ROCK("BATU"),
-    PAPER("KERTAS"),
-    SCISSORS("GUNTING")
+enum class StatusJanken(val value: String) {
+    ROCK(Constant.ROCK),
+    PAPER(Constant.PAPER),
+    SCISSORS(Constant.SCISSORS)
 }
