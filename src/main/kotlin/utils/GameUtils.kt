@@ -1,7 +1,7 @@
 package utils
 
 object GameUtils {
-    fun isYesOrNo(value: String?): Boolean {
+    fun isYesOrNo(value: String): Boolean {
         return value == Constant.CHAR_Y
     }
 
@@ -38,22 +38,6 @@ object GameUtils {
             Constant.NUMBER_ONE -> false
             Constant.NUMBER_TWO -> false
             else -> isWrongMessage()
-        }
-    }
-
-    fun messageResult(value: String, list: List<String>) {
-        if (list.isNotEmpty()) {
-            when (value) {
-                Constant.NUMBER_ONE -> println(Constant.MSG_RESULT + list[0] + Constant.MSG_PLAYER_WIN)
-                Constant.NUMBER_TWO -> println(Constant.MSG_RESULT + list[1] + Constant.MSG_PLAYER_WIN)
-                else -> println(Constant.MSG_RESULT + Constant.MSG_DRAW)
-            }
-        } else {
-            when (value) {
-                Constant.NUMBER_ONE -> println(Constant.MSG_RESULT + Constant.MSG_PLAYER_ONE_WIN)
-                Constant.NUMBER_TWO -> println(Constant.MSG_RESULT + Constant.MSG_PLAYER_TWO_WIN)
-                else -> println(Constant.MSG_RESULT + Constant.MSG_DRAW)
-            }
         }
     }
 

@@ -2,29 +2,52 @@ package game
 
 import utils.Constant
 import utils.GameUtils
+import kotlin.system.exitProcess
 
 class BaseGameJanken {
-    private lateinit var controllerGame: ControllerGame
     private lateinit var listUsername: List<String>
+    private lateinit var valueInputMenu: String
     private lateinit var valuePlayerOne: String
     private lateinit var valuePlayerTwo: String
     private lateinit var valuePlayAgain: String
+    private val controllerGame = ControllerGame()
 
     fun startGame() {
-        controllerGame = ControllerGame()
-        controllerGame.menuGame()
+        navigateToMainMenu()
+    }
+
+    private fun navigateToMainMenu() {
+        print(Constant.HEADER)
+        do {
+            print(Constant.MSG_INPUT_MENU)
+            valueInputMenu = readLine().orEmpty()
+        } while (GameUtils.isWrongMenuNumber(valueInputMenu))
+        navigateToMenu(valueInputMenu)
+    }
+
+    private fun navigateToMenu(menu: String) {
+        when (menu) {
+            Constant.NUMBER_ONE -> playGame()
+            Constant.NUMBER_TWO -> {
+                println(Constant.MSG_EXIT_GAME)
+                exitProcess(0)
+            }
+        }
+    }
+
+    private fun playGame() {
         listUsername = controllerGame.inputUsername()
         println(Constant.MSG_PLAY_GAME)
         do {
             do {
                 printMessageInput(Constant.NUMBER_ONE)
-                valuePlayerOne = readLine()?.lowercase() ?: Constant.EMPTY_VALUE
+                valuePlayerOne = readLine()?.lowercase().orEmpty()
             } while (GameUtils.isWrongInput(valuePlayerOne))
             println(Constant.MSG_CHOOSE + valuePlayerOne)
 
             do {
                 printMessageInput(Constant.NUMBER_TWO)
-                valuePlayerTwo = readLine()?.lowercase() ?: Constant.EMPTY_VALUE
+                valuePlayerTwo = readLine()?.lowercase().orEmpty()
             } while (GameUtils.isWrongInput(valuePlayerTwo))
             println(Constant.MSG_CHOOSE + valuePlayerTwo)
 
@@ -32,7 +55,7 @@ class BaseGameJanken {
 
             do {
                 print(Constant.MSG_PLAY_AGAIN)
-                valuePlayAgain = readLine()?.uppercase() ?: Constant.EMPTY_VALUE
+                valuePlayAgain = readLine()?.uppercase().orEmpty()
             } while (GameUtils.isYesOrNoInput(valuePlayAgain))
         } while (playAgain(GameUtils.isYesOrNo(valuePlayAgain)))
     }
@@ -42,7 +65,7 @@ class BaseGameJanken {
             println(Constant.MSG_PLAY_GAME)
             state
         } else {
-            println(Constant.MSG_EXIT_GAME)
+            navigateToMainMenu()
             state
         }
     }

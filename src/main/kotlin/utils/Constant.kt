@@ -2,11 +2,9 @@ package utils
 
 class Constant {
     companion object {
-        const val INTRO =
-            "\n-=-=-=-=-=-=-=-=-=-=-=-\nWELCOME TO GAME JANKEN\n-=-=-=-=-=-=-=-=-=-=-=-"
-        const val MENU =
-            "\nPLEASE SELECT MENU\n-----------------------\n1. Start Game\n2. Exit\n-----------------------"
-        const val MSG_PLAY_AGAIN = "\nDo you want to play again? (Y/N) : "
+        const val HEADER =
+            "\n-=-=-=-=-=-=-=-=-=-=-=-\nWELCOME TO GAME JANKEN\n-=-=-=-=-=-=-=-=-=-=-=-\n1. Start Game\n2. Exit\n-=-=-=-=-=-=-=-=-=-=-=-"
+        const val MSG_PLAY_AGAIN = "\nDo you want to play again? If not return to Game Menu (Y/N) : "
         const val MSG_PLAY_GAME = "Start the game"
         const val MSG_EXIT_GAME = "Exit game"
         const val MSG_INPUT_MENU = "\nEnter your choice (1/2) : "
